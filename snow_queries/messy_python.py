@@ -1,4 +1,5 @@
 from snowflake.snowpark import Session
+from snowflake.snowpark.catalog import Catalog
 import os
 import pandas as pd
 
@@ -21,23 +22,6 @@ try:
 except Exception as e:
     print(e)
 
-session.sql("CREATE OR REPLACE TABLE small_table (id int autoincrement, name varchar(50), surname varchar(50), age int)").collect()
-session.sql("INSERT INTO small_table (name, surname, age) VALUES ('Kate', 'Grey', 23),('May', 'White', 41)").collect()
 
-print("\n The first table: \n")
-df = session.table('small_table')
-df_pd = df.to_pandas()
-print(df_pd.head())
-
-print("\n The second table: \n")
-new_df = pd.DataFrame({"Name":["Kate", "May"], "HasDog":["No", "Yes"]})
-print(new_df.head())
-
-try:
-    spark_df = session.write_pandas(new_df, 'PETS', auto_create_table = True)
-    if spark_df:
-        print("New table created successfully")
-except Exception as e:
-    print(e)
-# session.commit()
-
+# session.sql('DROP TABLE IF EXISTS "pets"').collect()
+session.catalog.dropTable("PETS")

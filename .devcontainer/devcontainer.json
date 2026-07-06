@@ -1,0 +1,8 @@
+{"name":"Playground for Snowflake and DBT",
+"image":"mcr.microsoft.com/devcontainers/universal:2",
+"customizations": {
+    "vscode": {
+        "extensions": ["snowflake.snowflake-vsc"]
+    }
+},
+"postCreateCommand": "pip install dbt-core dbt-snowflake snowflake-snowpark-python"}

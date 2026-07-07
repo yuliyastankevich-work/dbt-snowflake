@@ -1,0 +1,9 @@
+models:
+  - name: stg_hgnc
+    description: "Initial cleaned HGNC complete set table view"
+    columns:
+      - name: hgnc_id
+        description: "Unique HGNC ID for the gene"
+        data_tests:
+          - not_null
+          - unique

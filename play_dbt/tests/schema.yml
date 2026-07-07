@@ -1,0 +1,5 @@
+data_tests:
+  - name: check_uniprot_parsing
+    description: "Check that the number of rows in the parsed UniProt table is equal to the number of rows in the original HGNC table"
+    config:
+      severity: error

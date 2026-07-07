@@ -1,0 +1,7 @@
+models:
+  - name: int_parsed_uniprot
+    description: "Table with parsed UniProt IDs as one ID - one row"
+    columns:
+      - name: hgnc_id
+        data_tests:
+          - not_null

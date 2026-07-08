@@ -5,3 +5,12 @@ models:
       - name: hgnc_id
         data_tests:
           - not_null
+  - name: int_parsed_gene_names
+    description: "Table with the full list of gene symbols and their synonyms, outated symbols"
+    columns:
+      - name: hgnc_id
+        data_tests:
+          - not_null
+      - name: gene_symbol
+        data_tests:
+          - not_null

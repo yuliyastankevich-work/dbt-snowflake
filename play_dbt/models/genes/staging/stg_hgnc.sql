@@ -21,6 +21,6 @@ CAST("entrez_id" AS INT) AS entrez_id,
 "omim_id" AS omim_accession, 
 "mane_select" AS other_ids
 
-from PLAY_SHEMA.HGNC_TABLE
+from {{ source('play_source', 'hgnc_table')}}
 WHERE "status" = 'Approved')
 select * from raw_hgnc

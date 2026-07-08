@@ -1,0 +1,8 @@
+version: 1
+
+sources:
+  - name: play_source
+    database: play_db
+    schema: play_source
+    tables:
+      - name: hgnc_table

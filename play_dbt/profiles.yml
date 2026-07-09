@@ -17,3 +17,14 @@ play_profile:
       database: "{{ env_var('SNOWFLAKE_DATABASE_PROD') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
       warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+
+  target: ci
+  outputs:
+    ci:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE_DEV') }}"
+      schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
+      warehouse: "CI_PR${{ env_var('SNOWFLAKE_WAREHOUSE') }}"

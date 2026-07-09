@@ -1,0 +1,6 @@
+snowflake-snowpark-python
+snowflake-snowpark-python[pandas]
+snowflake-core
+dbt-core
+dbt-snowflake
+requests

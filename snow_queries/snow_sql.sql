@@ -316,3 +316,4 @@ pubmed_accession,
 omim_accession,
 other_ids
 FROM PLAY_SHEMA.stg_hgnc;
+

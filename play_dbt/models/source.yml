@@ -2,7 +2,7 @@ version: 1
 
 sources:
   - name: play_source
-    database: play_db_dev
+    database: '{{ target.database }}'
     schema: play_source
     tables:
       - name: hgnc_table

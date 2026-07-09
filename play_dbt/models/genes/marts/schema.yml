@@ -1,0 +1,31 @@
+models:
+  - name: source_mrt_samples
+    columns:
+      - name: sample_id
+        data_tests:
+          - not_null
+          - unique
+      - name: disease
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Colorectal Cancer', 'Normal', 'Breast Cancer', 'Lung Cancer', 'Glioblastoma', 'Leukemia', 'Melanoma', 'Pancreatic Cancer']
+      - name: analysis_id
+        data_tests:
+          - not_null
+      - name: sample_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['blood', 'tissue', 'FFPE']
+      - name: status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['dna_extraction', 'in_progress', 'analysis', 'ready']
+      - name: updated_at
+        data_tests:
+          - not_null

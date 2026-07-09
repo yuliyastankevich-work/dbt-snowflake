@@ -1,0 +1,9 @@
+snapshots:
+    - name: mrt_samples
+      relation: ref('source_mrt_samples')
+      config:
+        schema: snapshots
+        database: play_db_dev
+        unique_key: sample_id
+        strategy: timestamp
+        updated_at: updated_at

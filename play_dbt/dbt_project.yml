@@ -37,3 +37,4 @@ models:
         +materialized: table
 seeds:
   play_dbt:
+    +schema: seeds

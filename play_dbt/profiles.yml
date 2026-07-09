@@ -1,5 +1,5 @@
 play_profile:
-  target: prod
+  target: dev
   outputs:
     dev:
       type: snowflake

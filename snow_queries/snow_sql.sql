@@ -163,7 +163,7 @@ from PLAY_SHEMA.stg_hgnc
     )
 ORDER BY chr;
 
-
+select * from PLAY_SOURCE.samples;
 CREATE TABLE IF NOT EXISTS PLAY_SOURCE.samples (
 sample_id STRING,
 analysis_id STRING,

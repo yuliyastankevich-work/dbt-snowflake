@@ -2,7 +2,8 @@ version: 1
 
 sources:
   - name: play_source
-    database: play_db
+    database: play_db_dev
     schema: play_source
     tables:
       - name: hgnc_table
+      - name: samples

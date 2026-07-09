@@ -15,7 +15,7 @@ env:
     SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE}}
     SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE}}
     SNOWFLAKE_DATABASE_DEV: ${{ secrets.SNOWFLAKE_DATABASE_DEV}}
-    DBT_PR_NUM: ${{ github.event.number || 'main' }}
+    SNOWFLAKE_SCHEMA: "CI_PR${{ github.event.number || 'main' }}"
 
 
 

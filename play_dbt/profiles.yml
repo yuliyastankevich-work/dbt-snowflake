@@ -27,4 +27,4 @@ play_profile:
       password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
       database: "{{ env_var('SNOWFLAKE_DATABASE_DEV') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA') }}"
-      warehouse: "CI_PR${{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"

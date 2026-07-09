@@ -1,10 +1,11 @@
 select current_database(), current_schema();
+
 show schemas in database PLAY_DB;
 create schema if not exists PLAY_SOURCE;
 show views in schema PLAY_SHEMA;
 drop view if exists PLAY_SHEMA.my_second_dbt_model;
 show tables in schema PLAY_SOURCE;
-drop table PLAY_SHEMA.HGNC_TABLE;
+drop schema if exists PLAY_SHEMA_intermediate cascade;
 
 select * from PLAY_SHEMA."pets";
 
@@ -142,3 +143,22 @@ SELECT
 FROM expected_total
 CROSS JOIN actual_total
 WHERE expected_count != actual_count;
+
+show columns in table PLAY_SHEMA.stg_hgnc;
+
+select distinct regexp_substr(chr_location, '^[0-9]+') as chr from PLAY_SHEMA.stg_hgnc;
+
+
+select distinct regexp_substr(chr_location, '^[A-Za-z]+') as chr from PLAY_SHEMA.stg_hgnc;
+
+select distinct(chr) 
+from (select chr_location,
+case
+    when LOWER(chr_location) like 'mitochondrial%' then 'MT'
+    when regexp_like(chr_location, '^([0-9]+|X|Y|M|MT)([pq].*|$)')
+    then UPPER(regexp_substr(chr_location, '^([0-9]+|X|Y|M|MT)([pq].*|$)', 1, 1, 'i', 1))
+    else chr_location
+    end as chr
+from PLAY_SHEMA.stg_hgnc
+    )
+ORDER BY chr;

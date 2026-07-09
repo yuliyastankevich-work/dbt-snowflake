@@ -35,3 +35,5 @@ models:
         +materialized: view
       intermediate:
         +materialized: table
+seeds:
+  play_dbt:
